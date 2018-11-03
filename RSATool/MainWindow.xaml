@@ -1,0 +1,83 @@
+﻿<Window x:Class="RSATool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uc="clr-namespace:RSATool.View.UserControlViews"
+        Title="RSA Tool" Height="470" Width="700" Background="WhiteSmoke">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open Cipher File" x:Name="openFileBtn" Click="openFileBtn_Click" />
+                <MenuItem Header="_Save Cipher" x:Name="saveCipherTxtBtn" Click="saveCipherTxtBtn_Click"/>
+                <Separator />
+                <MenuItem Header="_Exit" x:Name="exitBtn" Click="exitBtn_Click"/>
+            </MenuItem>
+            <MenuItem Header="_RSA">
+                <MenuItem Header="_Encrypt text" x:Name="encryptBtn" Click="encryptBtn_Click"/>
+                <Separator />
+                <MenuItem Header="_Decypet cipher" x:Name="decryptBtn" Click="decryptBtn_Click"/>
+            </MenuItem>
+            <MenuItem Header="Keys">
+                <MenuItem Header="_Open Key pair" x:Name="openKeysFileBtn" Click="openKeysFileBtn_Click" />
+                <MenuItem Header="_Save key pair" x:Name="saveKeysBtn" Click="saveKeysBtn_Click"/>
+                <Separator />
+                <MenuItem Header="_Generate new keys" x:Name="generateKeysBtn" Click="generateKeysBtn_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About" x:Name="aboutBtn" Click="aboutBtn_Click"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TabControl Margin="0,20,0,10" Grid.Row="0" x:Name="tabControl">
+                <TabItem Header="Encryption">
+                    <uc:EncryptionUC x:Name="ucEncryption" 
+                         PlainText="{Binding Path=PlainText, Mode=TwoWay}"/>
+                </TabItem>
+                <TabItem Header="Decription">
+                    <uc:DecryptionUC x:Name="ucDecryption" 
+                         CipherText="{Binding Path=CipherText, Mode=TwoWay}"/>
+                </TabItem>
+                <TabItem Header="Keys" 
+                         >
+                    <uc:KeysUC x:Name="ucKeys"
+                          PublicE="{Binding Path=PublicE, Mode=TwoWay}"
+                          PublicN="{Binding Path=PublicN, Mode=TwoWay}"
+                          PrivateN="{Binding Path=PrivateN, Mode=TwoWay}"
+                          PrivateD="{Binding Path=PrivateD, Mode=TwoWay}"/>
+                </TabItem>
+            </TabControl>
+            <DockPanel Grid.Row="1">
+                <StatusBar DockPanel.Dock="Bottom">
+                    <StatusBar.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </ItemsPanelTemplate>
+                    </StatusBar.ItemsPanel>
+                    <StatusBarItem>
+                        <TextBlock Name="lblCursorPosition" />
+                    </StatusBarItem>
+                    <Separator Grid.Column="1" />
+                    <StatusBarItem Grid.Column="2">
+                        <TextBlock x:Name="messageStatusBar" />
+                    </StatusBarItem>
+                    <Separator Grid.Column="3" />
+                    <StatusBarItem Grid.Column="4">
+                        <ProgressBar x:Name="progressBar" Width="90" Height="16" Orientation="Horizontal"/>
+                    </StatusBarItem>
+                </StatusBar>
+            </DockPanel>
+        </Grid>
+    </DockPanel>
+    
+</Window>

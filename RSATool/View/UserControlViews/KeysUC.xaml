@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="RSATool.View.UserControlViews.KeysUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary 
+                  Source="/RSATool;component/View/Resources/ResourcesDictionary.xaml">
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="LightSteelBlue" BorderThickness="2" CornerRadius="2" 
+                Grid.Row="0" 
+                Margin="0,0,0,10" Height="100">
+            <DockPanel >
+                <Grid  DockPanel.Dock="Top" Background="LightSteelBlue" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Public Key" Style="{StaticResource GroupTitleLabel}"></Label>
+                </Grid>
+                <Grid DockPanel.Dock="Bottom">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.1*"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="eLbl" Content="e:" VerticalAlignment="Center" FontWeight="Bold" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="0" Grid.Column="1"  Height="20" Margin="0,0,10,0"  Text="{Binding PublicE, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Grid.Row="1" Grid.Column="0" x:Name="nLbl" Content="n:" VerticalAlignment="Center" FontWeight="Bold" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="1" Grid.Column="1"  Height="20" Margin="0,0,10,0" Text="{Binding PublicN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+            </DockPanel>
+        </Border>
+        <Border BorderBrush="LightSteelBlue" BorderThickness="2" CornerRadius="2" 
+                Grid.Row="1" 
+                Margin="0,0,0,10"  Height="100">
+            <DockPanel >
+                <Grid  DockPanel.Dock="Top" Background="LightSteelBlue" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Private Key" Style="{StaticResource GroupTitleLabel}"></Label>
+                </Grid>
+                <Grid DockPanel.Dock="Bottom">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.1*"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="dLbl" Content="d:" VerticalAlignment="Center" FontWeight="Bold" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="0" Grid.Column="1"  Height="20" Margin="0,0,10,0" Text="{Binding PrivateD, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Grid.Row="1" Grid.Column="0" x:Name="npLbl" Content="n:" VerticalAlignment="Center" FontWeight="Bold" HorizontalAlignment="Right"/>
+                    <TextBox Grid.Row="1" Grid.Column="1"  Height="20" Margin="0,0,10,0" Text="{Binding PrivateN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>
