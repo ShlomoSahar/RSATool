@@ -2,7 +2,7 @@
  * This project created by Shlomo Sahar. 10/06/2015
  * Please send me your feedback to shlomo.sahar@gmail.com 
  * */
-using RSAEngain;    //RSAEngain dll
+using RSAEngine;    //RSAEngine dll
 using RSATool.View; //for using user control views
 using RSATool.ViewModel;     //for using user view models
 using System;

@@ -34,8 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RSAEngain">
-      <HintPath>..\RSAEngain\bin\Debug\RSAEngain.dll</HintPath>
+    <Reference Include="RSAEngine">
+      <HintPath>..\RSAEngine\bin\Debug\RSAEngine.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
